@@ -32,6 +32,7 @@ print(f"Array 5 (3) \n {arr5}")
 arr5 [1,:] = 0
 #3B Print the resulting array
 print(f"Array 5 (3A) \n {arr5}")
+
 #4 broadcasting to add
 base = np.array([[1, 2, 3], [4, 5, 6]])
 bonus = np.array([10, 20, 30])
@@ -61,13 +62,12 @@ max_consumption = total_daily_consumption.max()
 
 #3.Detect outliers: houses with total consumption > 95th percentile.
 threshold_95 = np.percentile(total_daily_consumption, 95)
-# Find the indices (0-based) of the houses exceeding the threshold
 outlier_indices = np.where(total_daily_consumption > threshold_95)[0]
 outlier_house_ids = outlier_indices + 1
 outlier_consumption_values = total_daily_consumption[outlier_indices]
 
 #4.Smooth hourly readings for a single house using a 3-hour moving average.
-house_index = 9 # House 10 is at 0-based index 9
+house_index = 9
 house_readings = consumption_data[house_index, :]
 window_size = 3
 kernel = np.ones(window_size)
